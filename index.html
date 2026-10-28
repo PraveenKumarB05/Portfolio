@@ -1,0 +1,510 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Praveen Kumar B</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: the client's own dark-navy portfolio template rebuilt with Praveen's content. Fixed nav, centered hero with a typing line, About, Skills tabs, Experience, Projects, 3D designs, Contact. The gallery opens as a second view. Single dark look by design. */
+:root {
+  --bg: #050816;
+  --card: #0a0f2c;
+  --cyan: #00f5ff;
+  --violet: #a78bfa;
+  --text: #ffffff;
+  --muted: #aaaaaa;
+  --muted-2: #8f94a8;
+  --line: #333a55;
+  --glow: rgba(0, 245, 255, 0.2);
+  --nav-bg: rgba(5, 8, 22, 0.85);
+  --scrim: rgba(3, 5, 14, 0.94);
+  --body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-padding-top: 100px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1rem/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.inner { max-width: 1100px; margin: 0 auto; }
+svg.ico { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px 24px;
+  background: var(--nav-bg); backdrop-filter: blur(10px);
+  padding-top: calc(14px + env(safe-area-inset-top, 0px)); padding-bottom: 14px;
+  padding-left: max(16px, calc((100% - 1100px) / 2), env(safe-area-inset-left, 0px));
+  padding-right: max(16px, calc((100% - 1100px) / 2), env(safe-area-inset-right, 0px));
+}
+nav .brand { color: var(--cyan); font-size: 1.25rem; font-weight: 500; text-decoration: none; }
+nav ul { display: flex; gap: 28px; list-style: none; min-width: 0; max-width: 100%; overflow-x: auto; white-space: nowrap; }
+nav ul li a { color: var(--muted); text-decoration: none; font-size: 0.875rem; padding-block: 4px; display: inline-block; }
+nav ul li a.active, nav ul li a:hover { color: var(--cyan); }
+
+/* HERO */
+.hero { position: relative; isolation: isolate; display: flex; justify-content: center; text-align: center; padding-block: 170px 110px; }
+.hero::before {
+  content: ""; position: absolute; top: 50%; left: 50%; width: 400px; height: 400px; max-width: 100%;
+  transform: translate(-50%, -50%); background: radial-gradient(circle, var(--glow), transparent);
+  filter: blur(80px); z-index: -1;
+}
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 700; line-height: 1.1; margin-block: 8px; text-wrap: balance; }
+.typing { font-size: clamp(1.1rem, 3.4vw, 1.75rem); color: var(--muted); margin: 15px 0; min-height: 1.6em; }
+.typing span { color: var(--cyan); }
+.desc { max-width: 600px; margin: 0 auto; color: var(--muted-2); font-size: 0.875rem; }
+.social { margin-top: 25px; display: flex; justify-content: center; gap: 20px; }
+.social a { border: 1px solid var(--line); padding: 12px; border-radius: 10px; display: inline-flex; color: var(--text); transition: border-color 0.3s, color 0.3s, transform 0.3s; }
+.social a:hover { border-color: var(--cyan); color: var(--cyan); }
+@media (prefers-reduced-motion: no-preference) { .social a:hover { transform: translateY(-5px); } }
+
+/* SECTIONS */
+.section { padding-block: 100px; }
+.section-title { color: var(--cyan); margin-bottom: 50px; font-size: 1.75rem; font-weight: 500; }
+
+/* ABOUT + EXPERIENCE */
+.about-container { display: flex; gap: 40px; flex-wrap: wrap; align-items: stretch; }
+.about-card { flex: 1; min-width: min(100%, 300px); background: var(--card); padding: 30px; border-radius: 15px; color: var(--muted); line-height: 1.7; }
+.about-card p + p { margin-top: 1.1em; }
+.about-card h3 { color: var(--text); font-size: 1.25rem; font-weight: 500; margin-bottom: 4px; }
+.about-card .where { color: var(--cyan); font-size: 0.875rem; margin-bottom: 16px; }
+.about-features { flex: 1; min-width: min(100%, 300px); display: flex; flex-direction: column; gap: 20px; }
+.feature-box { background: var(--card); padding: 20px; border-radius: 15px; border: 1px solid transparent; transition: border-color 0.3s, transform 0.3s; }
+.feature-box:hover { border-color: var(--cyan); }
+@media (prefers-reduced-motion: no-preference) { .feature-box:hover { transform: translateY(-8px); } }
+.feature-box h3 { color: var(--text); font-size: 1.0625rem; font-weight: 500; margin-bottom: 6px; }
+.feature-box .when { display: block; color: var(--cyan); font-size: 0.8125rem; margin-bottom: 4px; }
+.feature-box p { color: var(--muted); font-size: 0.9375rem; }
+ul.dots { list-style: none; display: grid; gap: 12px; }
+ul.dots li { position: relative; padding-left: 22px; }
+ul.dots li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); }
+
+/* SKILLS */
+.tabs { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; }
+.tabs button { background: none; border: 1px solid var(--cyan); color: var(--cyan); padding: 8px 18px; border-radius: 8px; cursor: pointer; font: 400 0.9375rem var(--body); }
+.tabs button.active { background: var(--cyan); color: var(--bg); }
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 20px; }
+.skill { background: var(--card); padding: 18px 20px; border-radius: 15px; border: 1px solid transparent; transition: border-color 0.3s, transform 0.3s; }
+.skill:hover { border-color: var(--cyan); }
+@media (prefers-reduced-motion: no-preference) { .skill:hover { transform: translateY(-6px); } }
+
+/* PROJECTS */
+.project-container { display: flex; flex-direction: column; gap: 0; padding-bottom: 60px; }
+.project-container + .project-container { padding-top: 10px; }
+.project-label { color: var(--cyan); margin-bottom: 10px; font-size: 0.9375rem; }
+.project-title { font-size: clamp(1.4rem, 3.4vw, 1.75rem); font-weight: 500; margin-bottom: 20px; text-wrap: balance; }
+.project-desc { background: var(--card); padding: 20px; border-radius: 15px; color: var(--muted); margin-bottom: 20px; display: grid; gap: 10px; max-width: 800px; }
+.project-tech { display: flex; flex-wrap: wrap; gap: 10px; }
+.project-tech span { background: var(--card); padding: 8px 14px; border-radius: 8px; font-size: 0.8125rem; color: var(--cyan); }
+
+/* 3D DESIGNS (home) + BUTTONS */
+.section-text { color: var(--muted); max-width: 600px; margin-bottom: 28px; }
+.hello-btn { display: inline-block; padding: 14px 26px; border: 0; border-radius: 10px; background: linear-gradient(90deg, var(--cyan), var(--violet)); color: var(--bg); font: 500 0.9375rem var(--body); text-decoration: none; cursor: pointer; }
+.hello-btn:hover { filter: brightness(1.08); }
+
+/* GALLERY VIEW */
+.page-head { padding-top: 150px; }
+.back { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
+.back:hover { color: var(--cyan); }
+.page-head .section-title { margin: 18px 0 12px; }
+.page-head p { color: var(--muted); max-width: 640px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 24px; padding-block: 40px 100px; }
+.shot { background: var(--card); border-radius: 15px; overflow: hidden; border: 1px solid transparent; transition: border-color 0.3s; min-width: 0; }
+.shot:hover { border-color: var(--cyan); }
+.shot .zoom { display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; border: 0; background: var(--card); cursor: zoom-in; }
+.shot .zoom img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot figcaption { padding: 14px 16px 16px; display: grid; gap: 2px; }
+.shot figcaption strong { font-weight: 500; }
+.shot figcaption span { color: var(--muted-2); font-size: 0.8125rem; }
+
+/* CONTACT */
+.contact-section { text-align: center; }
+.section-sub { color: var(--cyan); margin-bottom: 10px; font-size: 1.125rem; font-weight: 500; }
+.section-main { font-size: clamp(2.2rem, 6vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 15px; }
+.section-main span { color: var(--cyan); }
+.contact-desc { color: var(--muted); max-width: 600px; margin: 0 auto 60px; }
+.contact-container { display: flex; gap: 40px; flex-wrap: wrap; text-align: left; }
+.contact-info { flex: 1; min-width: min(100%, 300px); display: flex; flex-direction: column; gap: 20px; }
+.info-box { display: flex; align-items: center; gap: 15px; background: var(--card); padding: 20px; border-radius: 15px; min-width: 0; }
+.info-box > .ico { color: var(--cyan); width: 1.4rem; height: 1.4rem; }
+.info-box > div { flex: 1; min-width: 0; }
+.info-box h4 { font-weight: 500; font-size: 1rem; }
+.info-box p { color: var(--muted); overflow-wrap: anywhere; }
+.copy { background: transparent; border: 1px solid var(--cyan); color: var(--cyan); padding: 6px 14px; border-radius: 8px; cursor: pointer; font: 400 0.8125rem var(--body); }
+.copy:hover { background: var(--cyan); color: var(--bg); }
+.contact-card { flex: 1; min-width: min(100%, 300px); background: var(--card); padding: 30px; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; gap: 14px; align-items: flex-start; }
+.contact-card h4 { font-size: 1.25rem; font-weight: 500; }
+.contact-card p { color: var(--muted); }
+
+footer { text-align: center; color: var(--muted-2); font-size: 0.8125rem; padding-block: 30px 40px; border-top: 1px solid var(--line); }
+
+/* IMAGE VIEWER */
+.lightbox {
+  position: fixed; inset: 0; z-index: 2000; background: var(--scrim); color: var(--text);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) calc(16px + env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) calc(16px + env(safe-area-inset-left, 0px));
+}
+.lightbox img { max-width: 100%; max-height: calc(100% - 6rem); object-fit: contain; background: #fff; border-radius: 10px; }
+.lightbox p { color: var(--muted); font-size: 0.875rem; text-align: center; }
+.lightbox .close { align-self: flex-end; background: transparent; color: var(--cyan); border: 1px solid var(--cyan); padding: 8px 18px; border-radius: 8px; cursor: pointer; font: 400 0.875rem var(--body); }
+.lightbox .close:hover { background: var(--cyan); color: var(--bg); }
+
+@media (max-width: 560px) {
+  .section { padding-block: 70px; }
+  .section-title { margin-bottom: 32px; }
+  .about-card, .contact-card { padding: 22px; }
+  nav ul { gap: 20px; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+</svg>
+
+<nav aria-label="Sections">
+  <a class="brand" href="#top">Portfolio</a>
+  <ul>
+    <li><a href="#about">01. About</a></li>
+    <li><a href="#skills">02. Skills</a></li>
+    <li><a href="#experience">03. Experience</a></li>
+    <li><a href="#projects">04. Projects</a></li>
+    <li><a href="#gallery">05. Gallery</a></li>
+    <li><a href="#contact">06. Contact</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+  <div id="view-home">
+
+    <section class="hero">
+      <div class="inner">
+        <p>Hi, my name is</p>
+        <h1>Praveen Kumar B</h1>
+        <div class="typing">I work with <span id="text">CNC machines</span></div>
+        <p class="desc">Mechanical engineer and CNC / VMC machine operator who reads 2D drawings, holds tolerances and designs in AutoCAD and SolidWorks.</p>
+        <div class="social">
+          <a href="mailto:praveenkumarb@gmail.com" aria-label="Email Praveen"><svg class="ico"><use href="#i-mail"/></svg></a>
+          <a href="tel:+919600734513" aria-label="Call Praveen"><svg class="ico"><use href="#i-phone"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="inner">
+        <h2 class="section-title">01. About Me</h2>
+        <div class="about-container">
+          <div class="about-card">
+            <p>Hello! I'm Praveen, a mechanical professional with one year of experience as a CNC machine operator. I completed a design course in AutoCAD and SolidWorks, with knowledge of 2D drafting and 3D modelling.</p>
+            <p>Today I run CNC and VMC machines at ZF Wind Power Coimbatore, reading 2D engineering drawings, setting up tools and checking parts against dimensions and tolerances.</p>
+            <p>I'm looking for an opportunity to apply my manufacturing experience and design skills in a growth-oriented organization.</p>
+          </div>
+          <div class="about-features">
+            <div class="feature-box">
+              <h3>🎓 B.E. Mechanical Engineering</h3>
+              <span class="when">2022 – 2025</span>
+              <p>Nandha Engineering College</p>
+            </div>
+            <div class="feature-box">
+              <h3>🚗 Diploma in Automobile Engineering</h3>
+              <span class="when">2019 – 2022</span>
+              <p>Nandha Polytechnic College</p>
+            </div>
+            <div class="feature-box">
+              <h3>📘 SSLC</h3>
+              <span class="when">2018 – 2019</span>
+              <p>Navarasam Matriculation Higher Secondary School</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="inner">
+        <h2 class="section-title">02. Skills</h2>
+        <div class="tabs" role="tablist" aria-label="Skill groups">
+          <button class="active" id="t-cnc" role="tab" type="button" aria-selected="true" aria-controls="p-cnc">CNC / VMC</button>
+          <button id="t-design" role="tab" type="button" aria-selected="false" aria-controls="p-design">Design</button>
+        </div>
+        <div class="skill-grid" id="p-cnc" role="tabpanel" aria-labelledby="t-cnc">
+          <div class="skill">CNC / VMC machine operation</div>
+          <div class="skill">Machine setup and tool handling</div>
+          <div class="skill">2D engineering drawing interpretation</div>
+          <div class="skill">Dimensions and tolerances</div>
+          <div class="skill">Quality inspection</div>
+          <div class="skill">Basic troubleshooting</div>
+        </div>
+        <div class="skill-grid" id="p-design" role="tabpanel" aria-labelledby="t-design" hidden>
+          <div class="skill">AutoCAD</div>
+          <div class="skill">SolidWorks</div>
+          <div class="skill">2D drafting</div>
+          <div class="skill">3D modelling</div>
+          <div class="skill">GD&amp;T</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="inner">
+        <h2 class="section-title">03. Experience</h2>
+        <div class="about-container">
+          <div class="about-card">
+            <h3>CNC / VMC Machine Operator</h3>
+            <p class="where">ZF Wind Power Coimbatore Private Limited · August 2025 – Present</p>
+            <ul class="dots">
+              <li>Operate and set up CNC and VMC machines, including tool handling.</li>
+              <li>Interpret 2D engineering drawings, dimensions and tolerances to support accurate component production.</li>
+              <li>Carry out quality inspection and maintain production standards.</li>
+              <li>Handle basic troubleshooting on the machine.</li>
+            </ul>
+          </div>
+          <div class="about-features">
+            <div class="feature-box">
+              <h3>Lucas TVS · Internship</h3>
+              <span class="when">February 2025</span>
+              <p>Practical exposure to starter motor assembly for automobiles, and to identifying the major components.</p>
+            </div>
+            <div class="feature-box">
+              <h3>Ambal Autos · Internship</h3>
+              <span class="when">July 2024</span>
+              <p>Practical exposure to automobile body shop operations, vehicle inspection and basic body repair procedures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="inner">
+        <h2 class="section-title">04. Projects</h2>
+
+        <div class="project-container">
+          <p class="project-label">Project · 2023</p>
+          <h3 class="project-title">Double Side Slotting Machine</h3>
+          <div class="project-desc">
+            <p>Designed and developed a machine that cuts slots on both sides of a workpiece.</p>
+            <p>Improved machining efficiency and reduced processing time while keeping slot dimensions accurate.</p>
+          </div>
+          <div class="project-tech"><span>Machine Design</span><span>Slotting</span><span>Machining Efficiency</span></div>
+        </div>
+
+        <div class="project-container">
+          <p class="project-label">Project · 2024</p>
+          <h3 class="project-title">Automatic Rain Wiper</h3>
+          <div class="project-desc">
+            <p>Built a system that uses a rain sensor to detect rainfall and switch on the vehicle's windshield wipers automatically.</p>
+            <p>Improved driver safety and convenience by cutting manual operation and adjusting wiper control to rain intensity.</p>
+          </div>
+          <div class="project-tech"><span>Rain Sensor</span><span>Automotive</span><span>Automatic Control</span></div>
+        </div>
+
+        <div class="project-container">
+          <p class="project-label">Project · 2025</p>
+          <h3 class="project-title">Wear Behaviour of Hybrid Natural Fiber Composites</h3>
+          <div class="project-desc">
+            <p>Investigated the wear behaviour of hybrid natural fiber composites to evaluate their wear resistance and frictional performance.</p>
+            <p>Analyzed how fiber composition and material properties affect wear rate, to identify materials suited to low-load applications.</p>
+          </div>
+          <div class="project-tech"><span>Composites</span><span>Wear Testing</span><span>Material Selection</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="designs" class="section">
+      <div class="inner">
+        <h2 class="section-title">05. 3D Designs</h2>
+        <p class="section-text">Parts modelled in SolidWorks. Open the gallery to see all eight, each with its feature tree.</p>
+        <a class="hello-btn" href="#gallery">Open Gallery ↗</a>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="inner">
+        <h2 class="section-sub">06. What's Next?</h2>
+        <h2 class="section-main">Get In <span>Touch</span></h2>
+        <p class="contact-desc">I'm currently looking for new opportunities in manufacturing and design. Whether you have a question or just want to say hi, I'll try my best to get back to you.</p>
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="info-box">
+              <svg class="ico"><use href="#i-mail"/></svg>
+              <div><h4>Email</h4><p id="email">praveenkumarb@gmail.com</p></div>
+              <button class="copy" type="button" data-copy="praveenkumarb@gmail.com" data-target="email">Copy</button>
+            </div>
+            <div class="info-box">
+              <svg class="ico"><use href="#i-phone"/></svg>
+              <div><h4>Phone</h4><p id="phone">9600734513</p></div>
+              <button class="copy" type="button" data-copy="9600734513" data-target="phone">Copy</button>
+            </div>
+          </div>
+          <div class="contact-card">
+            <h4>Open to roles</h4>
+            <p>CNC / VMC machine operation, machining and design roles at a growth-oriented organization.</p>
+            <a class="hello-btn" href="mailto:praveenkumarb@gmail.com">Say Hello ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Praveen Kumar B · CNC / VMC Machine Operator · Mechanical Engineer</footer>
+  </div>
+
+  <div id="view-gallery" hidden>
+    <div class="inner">
+      <div class="page-head">
+        <a class="back" href="#top">&larr; Back to portfolio</a>
+        <h2 class="section-title">05. 3D Designs</h2>
+        <p>Models made in SolidWorks. Select a model to see the full screen with its feature tree.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-4-full.jpg" data-caption="Model 4 · Revolve · Sweep · Tapped hole · Chamfer · Fillet"><img src="images/model-4.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 4"></button><figcaption><strong>Model 4</strong><span>Revolve · Sweep · Tapped hole · Chamfer · Fillet</span></figcaption></figure>
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-6-full.jpg" data-caption="Model 6 · Revolve · Fillet"><img src="images/model-6.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 6"></button><figcaption><strong>Model 6</strong><span>Revolve · Fillet</span></figcaption></figure>
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-7-full.jpg" data-caption="Model 7 · Boss-Extrude · Rib · Mirror · Fillet"><img src="images/model-7.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 7"></button><figcaption><strong>Model 7</strong><span>Boss-Extrude · Rib · Mirror · Fillet</span></figcaption></figure>
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-8-full.jpg" data-caption="Model 8 · Boss-Extrude · Tapped hole · Mirror · Fillet"><img src="images/model-8.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 8"></button><figcaption><strong>Model 8</strong><span>Boss-Extrude · Tapped hole · Mirror · Fillet</span></figcaption></figure>
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-9-full.jpg" data-caption="Model 9 · Boss-Extrude · Rib · Mirror · Chamfer · Fillet"><img src="images/model-9.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 9"></button><figcaption><strong>Model 9</strong><span>Boss-Extrude · Rib · Mirror · Chamfer · Fillet</span></figcaption></figure>
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-11-full.jpg" data-caption="Model 11 · Boss-Extrude · Mirror · Cut-Extrude · Fillet"><img src="images/model-11.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 11"></button><figcaption><strong>Model 11</strong><span>Boss-Extrude · Mirror · Cut-Extrude · Fillet</span></figcaption></figure>
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-22-full.jpg" data-caption="Model 22 · Boss-Extrude · Circular pattern · Mirror"><img src="images/model-22.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 22"></button><figcaption><strong>Model 22</strong><span>Boss-Extrude · Circular pattern · Mirror</span></figcaption></figure>
+        <figure class="shot"><button class="zoom" type="button" data-full="images/model-24-full.jpg" data-caption="Model 24 · Boss-Extrude · Cut-Extrude · Fillet"><img src="images/model-24.jpg" width="900" height="675" loading="lazy" alt="SolidWorks 3D model 24"></button><figcaption><strong>Model 24</strong><span>Boss-Extrude · Cut-Extrude · Fillet</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Model screenshot" hidden>
+  <button class="close" id="lb-close" type="button">Close</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</div>
+
+<script>
+/* Typing line */
+(function () {
+  var words = ['CNC machines', 'VMC machines', 'AutoCAD', 'SolidWorks'];
+  var el = document.getElementById('text');
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = words[0]; return; }
+  var i = 0, j = 0, deleting = false;
+  function type() {
+    var word = words[i];
+    el.textContent = word.substring(0, j);
+    if (!deleting && j === word.length) { deleting = true; setTimeout(type, 1200); return; }
+    if (deleting && j === 0) { deleting = false; i = (i + 1) % words.length; }
+    j += deleting ? -1 : 1;
+    setTimeout(type, deleting ? 60 : 100);
+  }
+  type();
+})();
+
+/* Skill tabs */
+(function () {
+  var tabs = document.querySelectorAll('.tabs button');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    });
+  });
+})();
+
+/* Home and gallery views, active nav link */
+(function () {
+  var home = document.getElementById('view-home');
+  var gallery = document.getElementById('view-gallery');
+  var spy = ['about', 'skills', 'experience', 'projects', 'designs', 'contact'];
+  var links = {};
+  document.querySelectorAll('nav ul a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  var first = true;
+  function updateActive() {
+    var cur = '';
+    if (location.hash === '#gallery') { cur = 'gallery'; }
+    else {
+      spy.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 200) cur = id;
+      });
+    }
+    if (cur === 'designs') cur = 'gallery';
+    Object.keys(links).forEach(function (k) { links[k].classList.toggle('active', k === cur); });
+  }
+  function route() {
+    var isGallery = location.hash === '#gallery';
+    home.hidden = isGallery;
+    gallery.hidden = !isGallery;
+    var id = location.hash.slice(1);
+    var el = (!isGallery && id) ? document.getElementById(id) : null;
+    if (el) { el.scrollIntoView(); } else if (!first || isGallery) { window.scrollTo(0, 0); }
+    first = false;
+    updateActive();
+  }
+  window.addEventListener('hashchange', route);
+  window.addEventListener('scroll', updateActive, { passive: true });
+  route();
+})();
+
+/* Image viewer */
+(function () {
+  var box = document.getElementById('lightbox');
+  var img = document.getElementById('lb-img');
+  var cap = document.getElementById('lb-cap');
+  var closeBtn = document.getElementById('lb-close');
+  var opener = null;
+  function open(btn) {
+    opener = btn;
+    img.src = btn.getAttribute('data-full');
+    img.alt = btn.getAttribute('data-caption');
+    cap.textContent = btn.getAttribute('data-caption');
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function close() {
+    if (box.hidden) return;
+    box.hidden = true;
+    img.removeAttribute('src');
+    document.body.style.overflow = '';
+    if (opener) opener.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-full]') : null;
+    if (b) { open(b); return; }
+    if (e.target === box) close();
+  });
+  closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  window.addEventListener('hashchange', close);
+})();
+
+/* Copy buttons */
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var target = document.getElementById(btn.getAttribute('data-target'));
+    function reset() { setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+    function done() { btn.textContent = 'Copied'; reset(); }
+    function select() {
+      if (!target) return;
+      var r = document.createRange();
+      r.selectNodeContents(target);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      btn.textContent = 'Selected';
+      reset();
+    }
+    try { navigator.clipboard.writeText(text).then(done, select); } catch (e) { select(); }
+  });
+});
+</script>
+
+</body></html>
